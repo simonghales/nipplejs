@@ -71,7 +71,11 @@ export const trigger = (el, type, data) => {
 };
 
 export const prepareEvent = (evt) => {
-    evt.preventDefault();
+    const evtCSSClass = evt.target.className;
+    const isNipple = evtCSSClass == 'front' || evtCSSClass == 'back';
+    if (isNipple) {
+        evt.preventDefault();
+    }
     return evt.type.match(/^touch/) ? evt.changedTouches : evt;
 };
 
