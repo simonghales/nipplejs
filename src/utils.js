@@ -74,7 +74,7 @@ export const prepareEvent = (evt) => {
     const evtCSSClass = evt.target.className;
     const isNipple = evtCSSClass == 'front' || evtCSSClass == 'back';
     if (isNipple) {
-        //evt.preventDefault();
+        evt.preventDefault();
     }
     return evt.type.match(/^touch/) ? evt.changedTouches : evt;
 };
